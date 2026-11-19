@@ -1,0 +1,916 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="An educational exploration of the Ghana, Mali and Songhai empires and the geology of gold and petroleum in modern Africa.">
+<title>Africa's Golden Legacy | Empires, Gold & Oil</title>
+
+<style>
+:root {
+--ink:#17231d;
+--muted:#627067;
+--gold:#e8b64b;
+--gold2:#ffdc83;
+--green:#123d31;
+--deep:#091d19;
+--paper:#fffdf7;
+--line:#e8e2d3;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+margin:0;
+background:var(--paper);
+color:var(--ink);
+font-family:Inter,Segoe UI,Arial,sans-serif;
+line-height:1.7;
+}
+header{
+background:linear-gradient(120deg,rgba(5,25,20,.96),rgba(16,69,50,.88)),radial-gradient(circle at 80% 20%,#bd8a2f,transparent 40%);
+color:white;
+min-height:590px;
+display:flex;
+flex-direction:column;
+}
+nav{
+display:flex;
+justify-content:space-between;
+align-items:center;
+padding:20px max(5vw,20px);
+gap:20px;
+border-bottom:1px solid #ffffff2b;
+}
+.brand{
+font-weight:900;
+letter-spacing:2px;
+color:var(--gold2);
+}
+nav a{
+color:#fff;
+text-decoration:none;
+margin-left:18px;
+font-size:.92rem;
+}
+nav a:hover{color:var(--gold2)}
+.hero{
+max-width:1100px;
+width:90%;
+margin:auto;
+padding:85px 0 100px;
+}
+.eyebrow{
+text-transform:uppercase;
+letter-spacing:4px;
+color:var(--gold2);
+font-size:.78rem;
+font-weight:800;
+}
+.hero h1{
+font-size:clamp(2.8rem,7vw,5.8rem);
+line-height:1.02;
+max-width:850px;
+margin:18px 0;
+}
+.hero p{
+max-width:680px;
+color:#e1e9e2;
+font-size:1.12rem;
+}
+.actions{
+display:flex;
+gap:12px;
+flex-wrap:wrap;
+margin-top:28px;
+}
+.btn{
+display:inline-block;
+border:0;
+border-radius:30px;
+padding:12px 22px;
+background:var(--gold);
+color:#1e281e;
+font-weight:800;
+text-decoration:none;
+cursor:pointer;
+}
+.btn.outline{
+background:transparent;
+border:1px solid #ffffff8a;
+color:white;
+}
+main{
+max-width:1100px;
+width:90%;
+margin:auto;
+}
+.intro{padding:55px 0 25px}
+.intro-grid{
+display:grid;
+grid-template-columns:1.4fr 1fr;
+gap:35px;
+align-items:center;
+}
+.stat{
+background:#f4eddb;
+border-radius:18px;
+padding:24px;
+border:1px solid var(--line);
+}
+.stat strong{
+display:block;
+color:var(--green);
+font-size:2rem;
+}
+h2{
+font-size:clamp(1.8rem,4vw,2.7rem);
+line-height:1.15;
+color:var(--green);
+margin:0 0 18px;
+}
+h3{color:var(--green)}
+.section{
+padding:65px 0;
+border-top:1px solid var(--line);
+}
+.section-head{
+max-width:760px;
+margin-bottom:25px;
+}
+.section-head p,.muted{color:var(--muted)}
+.map-wrap{
+background:#e8f0e7;
+border-radius:24px;
+padding:18px;
+border:1px solid #d7e2d4;
+overflow:hidden;
+}
+.map-wrap svg{
+width:100%;
+height:auto;
+display:block;
+}
+.map-legend{
+display:flex;
+flex-wrap:wrap;
+gap:18px;
+font-size:.9rem;
+padding:12px 8px;
+}
+.dot{
+display:inline-block;
+width:11px;
+height:11px;
+border-radius:50%;
+margin-right:6px;
+}
+.history-grid{
+display:grid;
+grid-template-columns:1fr 1fr;
+gap:28px;
+}
+.history-card{
+background:white;
+border:1px solid var(--line);
+border-radius:20px;
+padding:24px;
+box-shadow:0 10px 35px #183b2510;
+}
+.history-card p{margin:0 0 17px}
+.tag{
+display:inline-block;
+background:#f7efd9;
+color:#76520d;
+padding:4px 10px;
+border-radius:20px;
+font-size:.75rem;
+font-weight:800;
+margin-bottom:12px;
+}
+.interaction{
+background:#102e25;
+color:#fff;
+border-radius:24px;
+padding:30px;
+margin:40px 0;
+}
+.interaction h2,.interaction h3{color:#ffe1a0}
+.like-row{
+display:flex;
+align-items:center;
+gap:12px;
+flex-wrap:wrap;
+}
+.like-btn{
+border:1px solid #e8c66f;
+background:transparent;
+color:#ffe1a0;
+padding:9px 17px;
+border-radius:25px;
+cursor:pointer;
+font-weight:800;
+}
+.like-btn.liked{
+background:#e8b64b;
+color:#17231d;
+}
+.comment-form{
+display:grid;
+gap:10px;
+margin:20px 0;
+}
+.comment-form input,.comment-form textarea{
+width:100%;
+padding:12px;
+border-radius:10px;
+border:1px solid #cbd5cc;
+font:inherit;
+}
+.comment-form textarea{min-height:95px}
+.comment{
+background:#ffffff12;
+border:1px solid #ffffff20;
+border-radius:12px;
+padding:13px;
+margin:10px 0;
+}
+.comment small{color:#e8c66f}
+.notice{
+font-size:.9rem;
+color:#d9e5dc;
+}
+.sources a{
+color:#17684e;
+overflow-wrap:anywhere;
+}
+.footer{
+background:var(--deep);
+color:#d7e2da;
+padding:35px 5%;
+text-align:center;
+margin-top:60px;
+}
+.footer a{color:var(--gold2)}
+@media(max-width:760px){
+nav{align-items:flex-start;flex-direction:column}
+nav a{margin:0 12px 0 0}
+.intro-grid,.history-grid{grid-template-columns:1fr}
+.hero{padding:65px 0}
+.section{padding:45px 0}
+}
+</style>
+</head>
+
+<body>
+
+<header id="top">
+<nav>
+<div class="brand">AFRICA'S GOLDEN LEGACY</div>
+<div>
+<a href="#map">Map</a>
+<a href="#ghana">Ghana</a>
+<a href="#mali">Mali</a>
+<a href="#songhai">Songhai</a>
+<a href="#discussion">Discussion</a>
+</div>
+</nav>
+
+<div class="hero">
+<div class="eyebrow">History • Geography • Geology</div>
+<h1>Empires of Gold.<br>Stories beneath the soil.</h1>
+<p>
+Discover the Ghana, Mali and Songhai empires, the trade networks that shaped West Africa, and what modern geology can—and cannot—tell us about gold and crude oil deposits across the continent.
+</p>
+<div class="actions">
+<a class="btn" href="#map">Explore the map</a>
+<a class="btn outline" href="#ghana">Read the research</a>
+</div>
+</div>
+</header>
+
+<main>
+
+<section class="intro">
+<div class="intro-grid">
+<div>
+<div class="eyebrow" style="color:#96701e">A journey across time</div>
+<h2>One region, three influential empires, a changing resource story.</h2>
+<p>
+West Africa's medieval empires connected farmers, miners, scholars and merchants across the Sahara and the Niger basin. Their histories help us understand trade and power. Modern geological science separately investigates where economically valuable minerals and hydrocarbons may occur.
+</p>
+</div>
+
+<div class="stat">
+<strong>3 empires</strong>
+<span>Ghana • Mali • Songhai</span>
+<hr>
+<strong>2 resource themes</strong>
+<span>Gold minerals • Petroleum systems</span>
+<hr>
+<strong>1 important distinction</strong>
+<span>Historical influence is not proof of a modern deposit.</span>
+</div>
+</div>
+</section>
+
+<!-- AFRICA MAP -->
+
+<section class="section" id="map">
+<div class="section-head">
+<div class="eyebrow" style="color:#96701e">Explore the geography</div>
+<h2>West Africa and selected modern resource regions</h2>
+<p>
+This is a simplified educational map, not a survey map. Historical zones are approximate. Modern resource markers indicate broad regions associated with mining or petroleum activity; they do not show exact deposit boundaries.
+</p>
+</div>
+
+<div class="map-wrap">
+
+<svg viewBox="0 0 900 590" role="img" aria-label="Schematic map of Africa highlighting West Africa">
+
+<defs>
+<linearGradient id="land" x2="0" y2="1">
+<stop stop-color="#d9c99a"/>
+<stop offset="1" stop-color="#c4b17c"/>
+</linearGradient>
+</defs>
+
+<path d="M350 35 L440 45 505 90 575 115 650 180 690 250 650 320 620 390 565 455 525 530 475 555 430 510 390 450 345 400 300 345 270 280 250 215 275 150 310 95Z"
+fill="url(#land)" stroke="#8b805e" stroke-width="4"/>
+
+<path d="M290 210 Q370 165 470 205 L490 270 Q420 300 335 275Z"
+fill="#c5a65a" opacity=".8" stroke="#8d6c2e" stroke-dasharray="7 5"/>
+
+<path d="M330 255 Q410 235 500 270 L485 340 Q405 360 340 320Z"
+fill="#8db59a" opacity=".8" stroke="#356a50" stroke-dasharray="7 5"/>
+
+<path d="M410 205 Q480 190 535 235 L525 300 Q470 315 430 285Z"
+fill="#d9a45e" opacity=".8" stroke="#8b5425" stroke-dasharray="7 5"/>
+
+<g fill="#344b3e" font-size="17" font-weight="700">
+<text x="365" y="225">GHANA / WAGADU</text>
+<text x="375" y="300">MALI</text>
+<text x="470" y="255">SONGHAI</text>
+<text x="535" y="390" font-size="14">CENTRAL AFRICA</text>
+<text x="270" y="470" font-size="14">ATLANTIC OCEAN</text>
+</g>
+
+<g fill="#c58a19" stroke="#fff" stroke-width="3">
+<circle cx="350" cy="260" r="10"/>
+<circle cx="405" cy="315" r="10"/>
+<circle cx="455" cy="285" r="10"/>
+<circle cx="390" cy="350" r="10"/>
+</g>
+
+<g fill="#237c9a" stroke="#fff" stroke-width="3">
+<circle cx="300" cy="320" r="10"/>
+<circle cx="330" cy="335" r="10"/>
+<circle cx="365" cy="365" r="10"/>
+</g>
+
+<g fill="#1e382e" font-size="13">
+<text x="280" y="300">Gulf of Guinea</text>
+<text x="270" y="350">Ghana offshore</text>
+<text x="380" y="385">Mali gold regions</text>
+<text x="485" y="180">Niger River basin</text>
+</g>
+
+<path d="M310 320 Q365 345 420 330"
+fill="none" stroke="#237c9a" stroke-width="3" stroke-dasharray="5 6"/>
+
+<text x="680" y="80" fill="#344b3e" font-size="18" font-weight="700">NORTH</text>
+
+<path d="M710 95 L710 145 M710 95 L700 112 M710 95 L720 112"
+stroke="#344b3e" stroke-width="4" fill="none"/>
+
+<text x="35" y="555" fill="#526b5d" font-size="12">SCHEMATIC ONLY • NOT TO SCALE</text>
+
+</svg>
+
+<div class="map-legend">
+<span><i class="dot" style="background:#c58a19"></i>Approximate historic / gold-region markers</span>
+<span><i class="dot" style="background:#237c9a"></i>Selected petroleum-region markers</span>
+</div>
+
+</div>
+
+<p class="muted">
+For precise work, consult national geological surveys, mining regulators and petroleum authorities. The map intentionally avoids suggesting that an empire's border predicts an oilfield or mine.
+</p>
+</section>
+
+<!-- GHANA EMPIRE -->
+
+<section class="section" id="ghana">
+<div class="section-head">
+<div class="eyebrow" style="color:#96701e">Historical research • 666 words</div>
+<h2>Ghana Empire</h2>
+<p class="muted">History, trade, modern gold potential and the separate geology of petroleum.</p>
+</div>
+
+<div class="history-card">
+
+<p>
+The Ghana Empire, also known in historical sources as Wagadu, was one of the great states of medieval West Africa. It flourished in the western Sahel, broadly between the Senegal and Niger river systems, with its political centre associated with the region around Koumbi Saleh in present-day southeastern Mauritania. Its name should not be confused with the modern Republic of Ghana, which lies farther south and adopted the name in 1957 partly to honour this earlier West African civilisation. The empire developed over many centuries and became especially influential between roughly the eighth and eleventh centuries, although dates and details remain debated because written accounts are limited and archaeological interpretation continues.
+
+Ghana's power rested on its ability to organise people, protect routes and tax valuable commerce. Merchants moved salt from Saharan areas southward and carried gold from forest and riverine zones northward. Other traded goods included copper, cloth, leather, grains and manufactured items. Gold was especially important, but the empire did not simply own every goldfield. Much of the metal came from communities and mining areas beyond the king's direct control. Rulers gained wealth by regulating markets, collecting duties and maintaining security along trade corridors. Muslim merchants and scholars helped connect the region to wider commercial and intellectual networks across North Africa.
+
+The empire's political organisation combined royal authority with local communities and subordinate leaders. Arabic-language writers described a powerful king, a court, an army and a prosperous trading centre. These accounts are valuable, but they were written by outsiders and must be read critically. Archaeology at sites such as Koumbi Saleh reveals settlement, craft production and commercial connections, while oral traditions preserve additional memories. Ghana was not a modern nation-state with today's borders. It was a changing political network whose influence expanded and contracted over time.
+
+Ghana's decline was gradual rather than a single dramatic event. Changes in trade routes, competition among neighbouring powers, environmental pressures and political conflict may all have contributed. The Almoravid movement is sometimes presented as the sole cause, but historians question that simple explanation. By the thirteenth century, the rising Mali Empire had become the leading power in much of the western Sudan. Ghana's legacy nevertheless endured through the continued importance of trade, statecraft, scholarship and urban life in the region.
+
+What does this history suggest about gold in present-day Africa? The old empire's gold trade demonstrates that West Africa has a long relationship with mineral extraction and long-distance exchange. Modern Ghana, Côte d'Ivoire, Mali, Burkina Faso, Senegal, Guinea and Mauritania contain important gold-bearing geological belts. Ghana today is one of Africa's major gold producers, with mining concentrated in areas including Obuasi, Tarkwa, Prestea and Ahafo. These modern deposits are not proof that every ancient Ghanaian gold source has been identified, nor do modern national borders match Wagadu's territory. They do show that the wider region remains geologically prospective.
+
+Crude oil requires a different geological explanation. Oil forms when organic-rich sediments are buried, heated and trapped beneath suitable impermeable rocks. The ancient Ghana Empire's location does not itself prove the presence of oil. However, present-day Ghana has offshore petroleum systems in the Gulf of Guinea, including the Jubilee and TEN fields. Senegal and Mauritania have also developed offshore gas resources, while other West African coastal basins are being explored. These discoveries are products of basin geology, seismic surveys, drilling and testing, not of medieval trade history.
+
+A responsible comparison therefore separates cultural history from modern geology. The empire helps explain why gold shaped regional wealth and political power; geological mapping explains where minerals or hydrocarbons may occur today. Exploration requires field studies, geophysical data, drilling, environmental assessment and transparent regulation. A map in this project marks broad historical and modern regions, not exact mine boundaries or guaranteed deposits. The most important lesson is that Africa's resource story is both ancient and contemporary, and that natural wealth creates lasting benefits only when communities, workers and ecosystems are protected.
+
+Further research should compare archaeological evidence with regional geology and community knowledge. Students can examine how trade networks changed settlement patterns, how mining affected landscapes, and how modern laws govern licences and royalties. They should also ask who receives the benefits, who bears environmental costs, and how historic sites can be protected while nearby communities pursue livelihoods. Such questions connect the past to practical choices about development today.
+</p>
+
+</div>
+</section>
+
+<!-- MALI EMPIRE -->
+
+<section class="section" id="mali">
+<div class="section-head">
+<div class="eyebrow" style="color:#96701e">Historical research • 666 words</div>
+<h2>Mali Empire</h2>
+<p class="muted">History, trade, modern gold potential and the separate geology of petroleum.</p>
+</div>
+
+<div class="history-card">
+
+<p>
+The Mali Empire became one of the most influential states in African and world history. It emerged in the western Sudan during the thirteenth century, following the decline of Ghana's regional dominance. Its early rulers built a strong political centre around the upper Niger basin, and its influence later stretched across large parts of present-day Mali, Senegal, The Gambia, Guinea, Mauritania, Burkina Faso and neighbouring areas. These borders changed over time and should be understood as approximate zones of influence rather than fixed modern boundaries. The empire reached great prominence between the thirteenth and fifteenth centuries.
+
+Tradition associates the empire's foundation with Sundiata Keita, whose victory over the Sosso ruler Soumaoro is remembered in oral epic. Sundiata's story combines historical memory, political symbolism and performance by hereditary storytellers known as griots. His successors developed institutions that linked provincial leaders, farming communities, merchants and military forces. The mansa, or emperor, stood at the centre of authority, but the empire depended on alliances and local administration across a diverse territory. Its strength came from agriculture, river transport, commerce, taxation and control of strategic routes.
+
+Gold was central to Mali's reputation. Goldfields in the wider West African region, including areas associated with Bambuk and Bure, supplied metal to trans-Saharan networks. Salt from Saharan mines was also essential, because it was valuable for food preservation and human health. Traders exchanged gold, salt, copper, textiles, horses, books and other goods. Mali's rulers benefited from trade taxes and political control, while cities became centres of craft, learning and religious life. The empire did not mine all the gold itself; production involved communities and specialist miners whose work supported regional and international markets.
+
+Mansa Musa, who ruled in the fourteenth century, became famous for his pilgrimage to Mecca in 1324–1325. His large travelling party and generous distribution of gold attracted attention in Egypt and beyond. Stories of the pilgrimage helped establish Mali's reputation in Mediterranean and Middle Eastern accounts, including maps that represented West Africa as a land of immense wealth. Yet Mali was more than the wealth of one ruler. Its towns, farms, river ports, scholars, artisans and ordinary households formed the foundation of its power.
+
+Timbuktu, Djenné and Gao became important centres within the wider commercial and intellectual world of the Niger bend. Timbuktu's mosques, manuscript traditions and scholarly communities connected local learning with Islamic networks across Africa and Asia. Djenné was associated with trade and distinctive earthen architecture. These cities were not isolated outposts; they were part of a connected landscape of agriculture, markets, transport and scholarship. Their history challenges stereotypes that portray precolonial Africa as lacking urban institutions or sophisticated political systems.
+
+Mali's influence weakened over time through succession disputes, provincial independence, external competition and changing commercial patterns. Songhai gradually became the dominant power around the Niger bend in the fifteenth century. Even after imperial authority declined, Mandé languages, oral traditions, artistic practices and memories of the Keita dynasty remained influential. Mali's legacy is therefore visible not only in monuments and manuscripts but also in living cultural traditions.
+
+The modern question of gold deposits must be approached through geology. The territory once influenced by Mali overlaps with parts of the Birimian and other West African geological provinces, which host important gold mineralisation. Present-day Mali is a major gold-producing country, with mining areas including Loulo-Gounkoto, Fekola and Sadiola. Guinea, Senegal, Burkina Faso and Côte d'Ivoire also contain significant gold projects. These are modern geological discoveries, established through mapping, sampling, geochemistry, geophysics and drilling. Historical accounts of gold trade can guide cultural research, but they cannot identify an orebody or establish its commercial value.
+
+Oil and gas potential is also distinct from the empire's history. Mali is landlocked, and it does not have the same offshore petroleum setting as coastal states. Sedimentary basins in parts of the wider Sahel have attracted geological study, but a basin or exploration licence is not proof of a commercially recoverable oil field. Nearby coastal countries, including Senegal and Mauritania, have developed offshore hydrocarbon projects. Ghana has producing offshore oilfields in the Gulf of Guinea. Their petroleum systems are related to sedimentary basin development, organic matter, burial history, reservoirs and seals.
+
+The lesson of Mali is that mineral wealth, trade and knowledge can support influential societies, but wealth alone does not guarantee stability or broad prosperity. Modern exploration should be transparent, scientifically tested and environmentally responsible. Governments and companies must consult communities, protect water and farmland, reduce pollution, provide fair compensation and publish reliable information. The map in this project uses broad regional markers to connect Mali's historical world with present-day gold districts and selected petroleum regions. It does not claim that ancient imperial borders define modern deposits. Understanding both history and geology allows Africa's resource future to be discussed with evidence, respect and ambition.
+</p>
+
+</div>
+</section>
+
+<!-- SONGHAI EMPIRE -->
+
+<section class="section" id="songhai">
+<div class="section-head">
+<div class="eyebrow" style="color:#96701e">Historical research • 666 words</div>
+<h2>Songhai Empire</h2>
+<p class="muted">History, trade, modern gold potential and the separate geology of petroleum.</p>
+</div>
+
+<div class="history-card">
+
+<p>
+The Songhai Empire was one of the largest and most powerful states in the history of West Africa. Its rise was centred on the middle Niger River, especially around Gao, a major commercial settlement in present-day eastern Mali. Songhai communities had a long history before the empire reached its greatest strength. Gao became an important trading centre because it connected river transport, Saharan caravan routes and agricultural communities. During the fifteenth century, Songhai expanded as Mali's authority weakened, eventually controlling a vast region of the western Sudan.
+
+The empire's expansion is closely associated with Sunni Ali, who ruled from 1464 to 1492. He strengthened Songhai through military campaigns and control of important river towns, including Timbuktu and Djenné. His leadership combined cavalry, river forces and political alliances. Sunni Ali's methods are described differently in Muslim chronicles and oral traditions, reminding historians that the past is interpreted through sources with different viewpoints. After his death, Askia Muhammad came to power in 1493 and established a more centralised administration. He reorganised provincial government, taxation and the army, and strengthened links with the wider Islamic world.
+
+Askia Muhammad made a pilgrimage to Mecca and developed relationships with scholars and religious authorities. Under the Askia dynasty, Timbuktu and other towns became centres of scholarship, commerce and Islamic law. The empire's government relied on officials who supervised provinces, collected revenue and maintained order. River transport helped move people and goods, while farming communities produced grain, fish and other supplies. Trade connected Songhai to North Africa and beyond, carrying salt, gold, copper, kola nuts, textiles, books and enslaved people. Any account of this prosperity must also acknowledge the coercion and human suffering associated with slavery and warfare.
+
+Gold was one of the most valuable commodities in the trans-Saharan economy, but Songhai's power was not based on gold alone. It controlled strategic routes and cities through which goods passed. Gold from southern and western mining zones moved north, while salt from the Sahara travelled south. The empire collected taxes and duties on commerce, and its rulers used this income to support government and military power. Gao, Timbuktu and Djenné had different roles in this connected economy. The Niger River was especially important because it supported transport, fishing, farming and settlement.
+
+Songhai reached its height in the sixteenth century, but its power faced growing pressures. Disputes over succession, provincial resistance and the difficulty of governing a large territory weakened central authority. In 1591, a Moroccan expedition equipped with firearms crossed the Sahara and defeated Songhai forces at the Battle of Tondibi. The invasion did not instantly erase local societies, but it shattered the empire's central power. Smaller states and regional authorities emerged, while trade and scholarship continued in changing forms.
+
+The modern geography of gold helps explain why the wider region remains economically important. Present-day Mali contains major gold mines and exploration projects, including areas in the west and southwest. Burkina Faso, Niger, Guinea and Côte d'Ivoire also have gold-bearing geological provinces. These modern deposits are associated with rock formations, faults, alteration zones and mineralising fluids. They must be identified through geological mapping, sampling, laboratory analysis and drilling. Songhai's historical trade routes may be interesting to historians and archaeologists, but they cannot be used as a substitute for modern mineral exploration.
+
+Crude oil and natural gas have different geological requirements from gold. Petroleum is generally found in sedimentary basins where organic-rich rocks generated hydrocarbons and where suitable reservoir and sealing rocks preserved them. The Songhai Empire was centred inland around the Niger River, so its historical territory should not be treated as an oil map. Modern petroleum activity in West Africa is concentrated in several sedimentary basins, particularly along the Atlantic margin. Ghana has offshore oil production in the Gulf of Guinea, and Senegal and Mauritania have offshore gas developments. Niger has also had onshore oil production in the Agadem basin. Each case depends on its own geological evidence.
+
+A map comparing Songhai with present-day resources must therefore distinguish three things: the approximate historical heartland, modern country borders and independently verified resource areas. The markers in this project are regional illustrations, not surveyed coordinates or promises of discoveries. New discoveries require investment, reliable data, skilled geologists, safe drilling and strong oversight. Mining and petroleum projects can bring jobs, infrastructure and public revenue, but they can also create pollution, land disputes, emissions and unequal benefits. Responsible development requires environmental protection, community participation, transparent contracts and careful management of revenue.
+
+Songhai's history offers a powerful lesson about connections. Rivers, markets, knowledge and political organisation helped communities build a major civilisation across a challenging environment. Modern Africa can draw inspiration from that history while applying contemporary science to questions about gold, oil and other resources. The goal should not simply be to extract more, but to turn natural wealth into education, health, infrastructure, local enterprise and lasting opportunities for future generations.
+</p>
+
+</div>
+</section>
+
+<!-- GOLD AND OIL EXPLANATION -->
+
+<section class="section">
+<div class="section-head">
+<div class="eyebrow" style="color:#96701e">What the comparison tells us</div>
+<h2>History is a guide to questions, not a substitute for geological evidence.</h2>
+</div>
+
+<div class="history-grid">
+
+<div class="history-card">
+<span class="tag">GOLD</span>
+<h3>Mineral deposits</h3>
+<p>
+Gold occurs in particular geological settings, including ancient greenstone belts and structures where mineralising fluids deposited gold. Modern exploration uses geological mapping, geochemical sampling, geophysics and drilling to test targets.
+</p>
+</div>
+
+<div class="history-card">
+<span class="tag">CRUDE OIL & GAS</span>
+<h3>Petroleum systems</h3>
+<p>
+Oil and gas generally require organic-rich source rocks, sufficient burial and heating, migration pathways, reservoir rocks and seals. Offshore discoveries along the Atlantic margin and onshore basins elsewhere reflect these conditions, not the location of medieval capitals.
+</p>
+</div>
+
+</div>
+</section>
+
+<!-- REFERENCES -->
+
+<section class="section sources">
+<h2>References and further reading</h2>
+
+<p>
+Use these institutions and reference works to deepen the research. Always check publication dates and the relevant national authority for current production or project status.
+</p>
+
+<ul>
+<li>
+<a href="https://www.britannica.com/place/Ghana-historical-region-Africa" target="_blank" rel="noopener">
+Encyclopaedia Britannica – Ghana (historical region)
+</a>
+</li>
+
+<li>
+<a href="https://www.britannica.com/place/Mali-historical-kingdom-and-empire-Africa" target="_blank" rel="noopener">
+Encyclopaedia Britannica – Mali
+</a>
+</li>
+
+<li>
+<a href="https://www.britannica.com/place/Songhai-empire" target="_blank" rel="noopener">
+Encyclopaedia Britannica – Songhai Empire
+</a>
+</li>
+
+<li>
+<a href="https://www.usgs.gov/" target="_blank" rel="noopener">
+United States Geological Survey – geological and mineral information
+</a>
+</li>
+
+<li>
+<a href="https://www.petroleumcommission.gov.gh/" target="_blank" rel="noopener">
+Ghana Petroleum Commission – petroleum sector information
+</a>
+</li>
+
+<li>
+<a href="https://www.eiti.org/" target="_blank" rel="noopener">
+Extractive Industries Transparency Initiative – resource governance
+</a>
+</li>
+
+<li>
+<a href="https://whc.unesco.org/" target="_blank" rel="noopener">
+UNESCO World Heritage Centre – African heritage sites
+</a>
+</li>
+</ul>
+
+<p class="muted">
+This is an educational overview, not an investment, exploration or geological assessment. Resource locations and commercial potential must be confirmed from current technical reports and official sources.
+</p>
+</section>
+
+<!-- LIKE AND COMMENT SYSTEM -->
+
+<section class="interaction" id="discussion">
+
+<div class="eyebrow">Join the conversation</div>
+
+<h2>What should Africa's resource future look like?</h2>
+
+<p>
+Like this project and share a thoughtful comment. Your contribution will be saved in this browser on this device.
+</p>
+
+<div class="like-row">
+<button class="like-btn" id="likeButton" type="button">
+♡ Like this project
+</button>
+<strong id="likeCount">0 likes</strong>
+</div>
+
+<form class="comment-form" id="commentForm">
+
+<input
+id="visitorName"
+maxlength="40"
+placeholder="Your name"
+required
+>
+
+<textarea
+id="visitorComment"
+maxlength="700"
+placeholder="Write your comment or question..."
+required
+></textarea>
+
+<button class="btn" type="submit">Post comment</button>
+
+</form>
+
+<div id="comments">
+<p class="notice">No comments yet. Start the discussion.</p>
+</div>
+
+<p class="notice">
+Important: this first version stores likes and comments only in this browser using local storage. It does not publish them to the internet or synchronise visitors' devices. To make a public class discussion, connect a shared database and host the site online.
+</p>
+
+</section>
+
+</main>
+
+<footer class="footer">
+
+<strong>AFRICA'S GOLDEN LEGACY</strong>
+
+<p>
+Learning from the past. Investigating the present. Building a responsible future.
+</p>
+
+<a href="#top">Back to top ↑</a>
+
+</footer>
+
+<script>
+
+// LIKE SYSTEM
+
+const likeButton = document.getElementById('likeButton');
+const likeCount = document.getElementById('likeCount');
+
+let likes = Number(localStorage.getItem('agl_likes') || 0);
+
+let liked = localStorage.getItem('agl_liked') === 'true';
+
+function drawLikes() {
+
+likeCount.textContent = likes + ' likes';
+
+likeButton.textContent = liked
+? '♥ Liked'
+: '♡ Like this project';
+
+likeButton.classList.toggle('liked', liked);
+
+}
+
+drawLikes();
+
+likeButton.addEventListener('click', () => {
+
+if (liked) {
+
+likes = Math.max(0, likes - 1);
+liked = false;
+
+} else {
+
+likes++;
+liked = true;
+
+}
+
+localStorage.setItem('agl_likes', likes);
+localStorage.setItem('agl_liked', liked);
+
+drawLikes();
+
+});
+
+
+// COMMENT SYSTEM
+
+const form = document.getElementById('commentForm');
+
+const list = document.getElementById('comments');
+
+let comments = JSON.parse(
+localStorage.getItem('agl_comments') || '[]'
+);
+
+
+function renderComments() {
+
+list.innerHTML = '';
+
+if (!comments.length) {
+
+list.innerHTML =
+'<p class="notice">No comments yet. Start the discussion.</p>';
+
+return;
+
+}
+
+comments.slice().reverse().forEach(c => {
+
+const box = document.createElement('div');
+
+box.className = 'comment';
+
+const name = document.createElement('strong');
+
+name.textContent = c.name;
+
+const date = document.createElement('small');
+
+date.textContent = ' · ' + c.date;
+
+const body = document.createElement('p');
+
+body.textContent = c.text;
+
+box.append(name, date, body);
+
+list.appendChild(box);
+
+});
+
+}
+
+renderComments();
+
+
+form.addEventListener('submit', e => {
+
+e.preventDefault();
+
+const name = document.getElementById('visitorName').value.trim();
+
+const text = document.getElementById('visitorComment').value.trim();
+
+if (!name || !text) return;
+
+comments.push({
+
+name: name,
+
+text: text,
+
+date: new Date().toLocaleString()
+
+});
+
+localStorage.setItem(
+'agl_comments',
+JSON.stringify(comments)
+);
+
+form.reset();
+
+renderComments();
+
+});
+
+</script>
+
+</body>
+</html>
+
+<style>
+.empire-map-card {
+  background: #f4eddb;
+  border: 1px solid #e8e2d3;
+  border-radius: 18px;
+  padding: 20px;
+  margin: 25px 0;
+  overflow: hidden;
+}
+.empire-map-card h3 {
+  color: #123d31;
+  margin-top: 0;
+}
+.empire-map-card svg {
+  display: block;
+  width: 100%;
+  height: auto;
+  background: #e9e2ca;
+  border-radius: 12px;
+}
+.empire-map-card p {
+  color: #627067;
+  font-size: .9rem;
+}
+.map-label {
+  font: bold 17px Arial, sans-serif;
+  fill: #173d30;
+}
+.map-small {
+  font: 13px Arial, sans-serif;
+  fill: #344b3e;
+}
+</style>
+
+<script>
+const empireMaps = {
+  ghana: {
+    title: "Map of the Ghana Empire (Wagadu)",
+    description: "Approximate historical location of the Ghana Empire in the western Sahel.",
+    region: "Western Sahel",
+    shape: "M120 130 L260 95 L390 135 L420 235 L340 310 L190 290 L105 220 Z",
+    color: "#c58a19",
+    places: [
+      {x:240,y:175,name:"Koumbi Saleh"},
+      {x:145,y:235,name:"Senegal River region"},
+      {x:350,y:260,name:"Niger River region"}
+    ]
+  },
+  mali: {
+    title: "Map of the Mali Empire",
+    description: "Approximate area of Mali's influence during its period of greatest power.",
+    region: "Upper and Middle Niger",
+    shape: "M100 145 L245 75 L410 110 L470 220 L380 320 L210 300 L110 235 Z",
+    color: "#4d9270",
+    places: [
+      {x:265,y:175,name:"Niani region"},
+      {x:350,y:235,name:"Timbuktu"},
+      {x:170,y:260,name:"Bambuk region"}
+    ]
+  },
+  songhai: {
+    title: "Map of the Songhai Empire",
+    description: "Approximate historical heartland and expansion around the Niger River.",
+    region: "Niger River bend",
+    shape: "M125 125 L280 90 L450 145 L420 250 L330 300 L180 270 L105 200 Z",
+    color: "#b66b36",
+    places: [
+      {x:300,y:170,name:"Gao"},
+      {x:365,y:235,name:"Timbuktu"},
+      {x:190,y:245,name:"Niger River"}
+    ]
+  }
+};
+
+function makeEmpireMap(data) {
+  const markers = data.places.map(place => `
+    <circle cx="${place.x}" cy="${place.y}" r="7"
+      fill="#b3261e" stroke="white" stroke-width="2"/>
+    <text x="${place.x + 11}" y="${place.y - 10}"
+      class="map-small">${place.name}</text>
+  `).join("");
+
+  return `
+    <div class="empire-map-card">
+      <h3>${data.title}</h3>
+      <svg viewBox="0 0 550 390" role="img"
+        aria-label="${data.description}">
+        <rect width="550" height="390" fill="#e9e2ca"/>
+        <path d="${data.shape}"
+          fill="${data.color}" opacity=".75"
+          stroke="#344b3e" stroke-width="3"
+          stroke-dasharray="8 5"/>
+        <path d="M65 190 Q180 155 260 205 T480 220"
+          fill="none" stroke="#237c9a"
+          stroke-width="5" stroke-linecap="round"/>
+        ${markers}
+        <text x="25" y="35" class="map-label">
+          WEST AFRICA
+        </text>
+        <text x="25" y="365" class="map-small">
+          NORTH ↑
+        </text>
+        <text x="350" y="365" class="map-small">
+          ${data.region}
+        </text>
+      </svg>
+      <p>${data.description}</p>
+      <p><strong>Important:</strong> This is an educational
+      illustration of the approximate historical region,
+      not an exact boundary or surveyed historical map.</p>
+    </div>
+  `;
+}
+
+["ghana", "mali", "songhai"].forEach(id => {
+  const section = document.getElementById(id);
+  if (section) {
+    const map = document.createElement("div");
+    map.innerHTML = makeEmpireMap(empireMaps[id]);
+    const historyCard = section.querySelector(".history-card");
+    if (historyCard) {
+      historyCard.after(map);
+    } else {
+      section.appendChild(map);
+    }
+  }
+});
+</script>
